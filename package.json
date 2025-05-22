@@ -1,5 +1,5 @@
 {
-  "name": "@alexellis/upload-assets",
+  "name": "@AaronNGray/upload-assets",
   "version": "1.0.1",
   "description": "GitHub Action to upload multiple assets to a release",
   "main": "index.js",
@@ -20,7 +20,7 @@
   "homepage": "https://github.com/alexellis/upload-assets#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "@actions/github": "^4.0.0",
+    "@actions/github": "^6.0.1",
     "glob": "^7.1.6"
   },
   "devDependencies": {
