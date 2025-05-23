@@ -4,7 +4,7 @@ author: 'AaronNGray'
 inputs:
   asset_paths:
     description: 'The paths to the assets you want to upload as a JSON array. You can use a glob pattern.'
-    required: true
+    required: false
 outputs:
   browser_download_urls:
     description: 'The URL users can navigate to in order to download the uploaded asset'

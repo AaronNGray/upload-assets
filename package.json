@@ -29,5 +29,10 @@
   },
   "devDependencies": {
     "@vercel/ncc": "^0.38.1"
+  },
+  "overrides": {
+    "@octokit/plugin-paginate-rest": "^9.2.1",
+    "@octokit/request": "^8.4.0",
+    "@octokit/request-error": "^5.1.0"
   }
 }
