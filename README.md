@@ -10,7 +10,9 @@ This action aims to resolve several outstanding user requests with [@actions/upl
 * Globbing i.e. `./bin/*`
 * Succinct - no need to populate content_type and a separate path input
 
-## Check out my eBooks 📖 🤓
+* Added Multiline JSON or YAML Arrays 
+
+## Check out original author eBooks 📖 🤓
 
 [You can sponsor me on GitHub](https://github.com/sponsors/alexellis/), or check out my eBooks on Golang for Cloud Native Developers or Node.js for Serverless
 
@@ -69,16 +71,39 @@ jobs:
         with:
           asset_paths: '["./bin/release-it*"]'
 ```
+or
+```yaml
+name: publish
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 1
+      - name: Make all
+        run: make all
+      - name: Upload release binaries
+        uses: alexellis/upload-assets@0.4.0
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          asset_paths: |
+            README.md
+            LICENSE
+            ./dist/*
+```
+Modified version of [https://github.com/alexellis/upload-assets](https://github.com/alexellis/upload-assets) to add `asset_paths` as YAML Arrays as well as single and multiline JSON.
 
 Example taken from [this sample project](https://github.com/alexellis/release-it/blob/master/.github/workflows/publish.yaml).
 
 ## Creating a new version
-
-Getting started:
-
-```bash
-npm i -g  @vercel/ncc
-```
 
 Build:
 
@@ -90,7 +115,6 @@ npm run build
 ## License
 
 MIT
-
 
 ## Contribution guide
 
