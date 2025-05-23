@@ -1,15 +1,19 @@
 {
-  "name": "@alexellis/upload-assets",
+  "name": "@AaronNGray/upload-assets",
   "version": "1.0.1",
   "description": "GitHub Action to upload multiple assets to a release",
   "main": "index.js",
+  "authors": [
+    "Aaron Gray <aaronngray@gmail.com",
+    "Alex Ellis <alexellis2@gmail.com>"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "ncc build src"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alexellis/upload-assets.git"
+    "url": "git+https://github.com/AaronNGray/upload-assets.git"
   },
   "keywords": [],
   "author": "",
