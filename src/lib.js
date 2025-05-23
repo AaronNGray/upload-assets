@@ -16,11 +16,17 @@ async function run() {
     const uploadUrl = await getRelease.getURL()
 
     // Get the inputs from the workflow file: https://github.com/actions/toolkit/tree/master/packages/core#inputsoutputs
-    const assetPathsSt = core.getInput('asset_paths', { required: true });
+    const assetPathsSt = core.getInput('asset_paths', { required: false });
 
-    const assetPaths = JSON.parse(assetPathsSt)
+    const assetPaths = [];
+    try {
+      assetPaths = JSON.parse(assetPathsSt);
+    } catch (error) {
+      assetPaths = assetPathsSt.split(/\r?\n/).map((path) => path.trim());
+    }
+    
     if(!assetPaths || assetPaths.length == 0) {
-      core.setFailed("asset_paths must contain a JSON array of quoted paths");
+      core.setFailed("asset_paths can either contain a JSON array of quoted paths, or a YAML Array of paths.");
       return
     }
 
